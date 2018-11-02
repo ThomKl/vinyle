@@ -1,8 +1,8 @@
-#index:
-#    path: /
-#    controller: App\Controller\ArticleController::homepage
+index:
+    path: /
+    controller: App\Controller\ArticleController::homepage
     
-user:
-    path: /user/
-    controller: App\Controller\UserController::user
+#user:
+#    path: /user/
+#    controller: App\Controller\UserController::user
 
