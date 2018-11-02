@@ -15,13 +15,5 @@ class ArticleController {
     public function homepage() {
         return new Response('lol');
     }
-    
-    /**
-    * @Route("/article")
-    */
-    public function showArticle() {
-        return new Response('voici un article');
-    }
-    
 }
     
