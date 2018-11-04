@@ -8,6 +8,7 @@
         "sensio/framework-extra-bundle": "^5.2",
         "sonata-project/admin-bundle": "^3.40",
         "sonata-project/doctrine-orm-admin-bundle": "^3.6",
+        "symfony/asset": "*",
         "symfony/console": "*",
         "symfony/flex": "^1.1",
         "symfony/framework-bundle": "*",
@@ -15,9 +16,13 @@
         "symfony/yaml": "*"
     },
     "require-dev": {
+        "easycorp/easy-log-handler": "^1.0.7",
         "sensiolabs/security-checker": "^5.0",
+        "symfony/debug-bundle": "^3.3|^4.0",
         "symfony/dotenv": "*",
+        "symfony/monolog-bundle": "^3.0",
         "symfony/profiler-pack": "^1.0",
+        "symfony/var-dumper": "^3.3|^4.0",
         "symfony/web-server-bundle": "*"
     },
     "config": {
