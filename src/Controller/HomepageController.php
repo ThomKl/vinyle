@@ -4,9 +4,9 @@ namespace App\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
-//use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class ArticleController {
+class HomepageController extends AbstractController {
    
     /**Permet de déclarer une route sans passer par le fichier routes.yml **/
     /**
@@ -14,7 +14,8 @@ class ArticleController {
     */
     
     public function homepage() {
-        return new Response('homepage');
+        return $this->render(
+            'product/index.html.twig');
     }
    
     
