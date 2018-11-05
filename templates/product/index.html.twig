@@ -7,10 +7,13 @@
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
+
 <div class="container">
     {% block menu %}
     <div class="row">
         <div class="col-12">
+               <div class="panel-heading text-center font-small bg-secondary text-white">Livraison offerte jusqu'au 22/12/2098</div>
+
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -19,29 +22,18 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="#">ESHOP <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
+                            <a class="nav-link" href="#">Se connecter</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
+                            <a class="nav-link" href="#">S'inscrire</a>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        <button class="btn btn-primary my-2 my-sm-0" type="submit">Rechercher</button>
                     </form>
                 </div>
             </nav>
@@ -49,22 +41,105 @@
     </div>
     {% endblock %}
     <div class="row">
-        <div class="col-12">
-            <h3>New products</h3>
+        <div class="col-12 mt-2">
+            <h3>Derniers ajouts</h3>
         </div>
     </div>
 
-    <div class="example-wrapper">
+    <div class="row">
         {% for product in products %}
-        
-        <div class="col-4 bg-light">
+
+        <div class="col-3 bg-light text-center product-titre">
             {{ product.titre }}
-            <div><img src="{{ asset('img/'~product.photo) }}" alt="{{ product.titre }}" class="img-responsive mx-auto" width="100px" /></div>
-            <div class="bg-dark">
+            <div class="text-center bg-white"><img src="{{ asset('img/'~product.photo) }}" alt="{{ product.titre }}" class="img-responsive mx-auto" width="200px" /></div>
+            <div class="bg-light product-desc">
+                {{product.description}}
+            </div>
+            <div class="p-2">
                 <a href="#" role="button" class="btn btn-primary">Voir le produit</a>
             </div>
         </div>
         {% endfor %}
     </div>
 </div>
+{% block footer %}
+<!-- Footer -->
+<footer class="font-small bg-primary pt-4 text-white">
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+        <!-- Grid row -->
+        <div class="row">
+            <!-- Grid column -->
+            <div class="col-md-6 mt-md-0 mt-3">
+                <!-- Content -->
+                <h5 class="text-uppercase">Footer</h5>
+                <p>Ce magnifique footer pour vous donner les liens essentiels qui n'ont pas été retenus pour le header</p>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none pb-3">
+
+            <!-- Grid column -->
+            <div class="col-md-3 mb-md-0 mb-3">
+
+                <!-- Links -->
+                <h5 class="text-uppercase">Customer service</h5>
+
+                <ul class="list-unstyled footer-link-color">
+                    <li>
+                        <a href="#!">About</a>
+                    </li>
+                    <li>
+                        <a href="#!">Terms</a>
+                    </li>
+                    <li>
+                        <a href="#!">Delivery</a>
+                    </li>
+                    <li>
+                        <a href="#!">Payment</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 mb-md-0 mb-3">
+
+                <!-- Links -->
+                <h5 class="text-uppercase">Service client</h5>
+
+                <ul class="list-unstyled footer-link-color">
+                    <li>
+                        <a href="#!">A propos</a>
+                    </li>
+                    <li>
+                        <a href="#!">CGV</a>
+                    </li>
+                    <li>
+                        <a href="#!">Livraison</a>
+                    </li>
+                    <li>
+                        <a href="#!">Paiement</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-2 bg-secondary">© 2018 Copyright
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+{% endblock %}
 {% endblock %}
