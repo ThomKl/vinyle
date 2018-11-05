@@ -10,6 +10,24 @@ use App\Entity\Product;
 
 class ProductController extends AbstractController
 {
+
+    /**Permet de déclarer une route sans passer par le fichier routes.yml **/
+    /**
+    * @Route("/")
+    */
+
+    public function homepage() {
+        $products = $this->getDoctrine()
+            ->getRepository(Product::class)
+            ->getAllProductsInStock();
+        
+        return $this->render(
+            'product/index.html.twig',
+            array('products' => $products)
+        );
+    }
+
+
     /**
      * @Route("/product", name="product")
      */

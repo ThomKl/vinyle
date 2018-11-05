@@ -47,4 +47,12 @@ class ProductRepository extends ServiceEntityRepository
         ;
     }
     */
+    
+    public function getAllProductsInStock():array {
+            $qb = $this->createQueryBuilder('p')
+            ->andWhere('p.stock > 0')
+            ->getQuery();
+
+        return $qb->execute();
+    }
 }
