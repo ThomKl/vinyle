@@ -11,6 +11,14 @@ body {
     font-style: italic;
 }
 
+.footer {
+/*
+    position:absolute;
+    bottom:0;
+    width:100%;
+*/
+}
+
 .footer-link-color li a {
     color:white;
 }

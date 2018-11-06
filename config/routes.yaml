@@ -1,3 +1,15 @@
-page-produit:
-    path: /article/$articleName
-    controller: App\Controller\ArticleController::pageProduct
+index:
+    path: /
+    controller: App\Controller\DefaultController::index
+
+logout:
+    path: /logout
+    controller: App\Controller\SecurityController::logout
+    
+login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+
+app_register:
+    path: /register
+    controller: App\Controller\SecurityController::register

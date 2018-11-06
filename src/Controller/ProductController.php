@@ -10,54 +10,6 @@ use App\Entity\Product;
 
 class ProductController extends AbstractController
 {
-
-    /**Permet de déclarer une route sans passer par le fichier routes.yml **/
-    /**
-    * @Route("/")
-    */
-
-    public function homepage() {
-        $products = $this->getDoctrine()
-            ->getRepository(Product::class)
-            ->getAllProductsInStock();
-        
-        return $this->render(
-            'product/index.html.twig',
-            array('products' => $products)
-        );
-    }
-
-
-    /**
-     * @Route("/product", name="product")
-     */
-    public function index()
-    {
-        // you can fetch the EntityManager via $this->getDoctrine()
-        // or you can add an argument to your action: index(EntityManagerInterface $entityManager)
-        $entityManager = $this->getDoctrine()->getManager();
-
-        $product = new Product();
-        $product->setReference('AZERTY12');
-        $product->setCategorie('T-SHIRT');
-        $product->setTitre('T-SHIRT TCHOUM');
-        $product->setDescription('T-shirt de toute beauté');
-        $product->setCouleur('Bleu');
-        $product->setTaille('S');
-        $product->setPublic('H');
-        $product->setPhoto('photo');
-        $product->setPrix(89);
-        $product->setStock(50);
-
-        // tell Doctrine you want to (eventually) save the Product (no queries yet)
-        $entityManager->persist($product);
-
-        // actually executes the queries (i.e. the INSERT query)
-        $entityManager->flush();
-
-        return new Response("Nouveau produit créé avec l'id ".$product->getId());
-    }
-
     /**
  * @Route("/product/{id}", name="product_show")
  */
@@ -72,9 +24,11 @@ class ProductController extends AbstractController
                 "Le produit n'existe pas pour cet id : " . $id
             );
         }
-
-        return new Response('Voici le produit: '.$product->getTitre());
-
+        return $this->render(
+            'product/detail.html.twig',
+            array('product' => $product)
+        );
+        
         // or render a template
         // in the template, print things with {{ product.name }}
         // return $this->render('product/show.html.twig', ['product' => $product]);
