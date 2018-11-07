@@ -59,12 +59,12 @@ class User implements UserInterface
     private $ville;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=50))
      */
     private $code_postal;
 
     /**
-     * @ORM\Column(type="string", length=5)
+     * @ORM\Column(type="string", length=255)
      */
     private $adresse;
 
@@ -201,7 +201,7 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getCodePostal(): ?int
+    public function getCodePostal(): ?string
     {
         return $this->code_postal;
     }

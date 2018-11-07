@@ -19,6 +19,7 @@ class ProductController extends AbstractController
             ->getRepository(Product::class)
             ->find($id);
 
+
         if (!$product) {
             throw $this->createNotFoundException(
                 "Le produit n'existe pas pour cet id : " . $id
@@ -28,9 +29,19 @@ class ProductController extends AbstractController
             'product/detail.html.twig',
             array('product' => $product)
         );
-        
-        // or render a template
-        // in the template, print things with {{ product.name }}
-        // return $this->render('product/show.html.twig', ['product' => $product]);
     }
+    /**
+ * @Route("/{category}", name="category_show")
+ */
+    public function category_show($category) {
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $products = $entityManager->getRepository(Product::class)->findByCategory($category);
+                
+        return $this->render(
+            'product/categorie.html.twig',
+            array('products' => $products)
+        );
+    }
+
 }

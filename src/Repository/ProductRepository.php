@@ -36,17 +36,16 @@ class ProductRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?Product
+
+    public function findByCategory($value): array
     {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
+         $qb = $this->createQueryBuilder('p')
+            ->andWhere('p.categorie = :val')
             ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+            ->getQuery();
+        return $qb->execute();
     }
-    */
+
     
     public function getAllProductsInStock():array {
             $qb = $this->createQueryBuilder('p')

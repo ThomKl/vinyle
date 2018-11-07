@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 mt-4 mb-4">
+            <h3></h3>
+        </div>
+    </div>
+
+    <div class="row">
+        {% for product in products %}
+        <div class="col-lg-3 col-sm-6 col-xs-12 bg-light text-center product-titre mb-5">
+            {{ product.titre }}
+            <div class="text-center bg-white"><img src="{{ asset('img/'~product.photo) }}" alt="{{ product.titre }}" class="img-responsive mx-auto" width="200px" /></div>
+            <div class="bg-light product-desc">
+                {{product.description}}
+            </div>
+            <div class="text-info">{{product.prix}} €</div>
+            <div class="p-2">
+                <a href="{{ asset('product/'~product.id) }}" role="button" class="btn btn-primary">Voir le produit</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
