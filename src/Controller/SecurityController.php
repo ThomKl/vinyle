@@ -110,7 +110,7 @@ class SecurityController extends AbstractController
 
             if ($user === null) {
                 $this->addFlash('danger', 'Token Inconnu');
-                return $this->redirectToRoute('homepage');
+                return $this->redirectToRoute('index');
             }
 
             $user->setResetToken(null);
@@ -119,7 +119,7 @@ class SecurityController extends AbstractController
 
             $this->addFlash('notice', 'Mot de passe mis à jour');
 
-            return $this->redirectToRoute('homepage');
+            return $this->redirectToRoute('index');
         }else {
 
             return $this->render('security/reset_password.html.twig', ['token' => $token]);
