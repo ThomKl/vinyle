@@ -159,7 +159,7 @@ class SecurityController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            return $this->redirectToRoute('task_success');
+            return $this->redirectToRoute('index');
 
         }
 

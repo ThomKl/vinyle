@@ -30,8 +30,8 @@ class ProductController extends AbstractController
             array('product' => $product)
         );
     }
-    /**
- * @Route("/{category}", name="category_show")
+/**
+ * @Route("/categorie/{category}", name="category_show")
  */
     public function category_show($category) {
 
@@ -42,6 +42,9 @@ class ProductController extends AbstractController
             'product/categorie.html.twig',
             array('products' => $products)
         );
+    }
+    
+    public function category_list() {
     }
 
 }

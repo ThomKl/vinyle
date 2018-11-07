@@ -36,7 +36,18 @@ class ProductRepository extends ServiceEntityRepository
     }
     */
 
-
+    public function findAllCategories(): array
+    {
+    $entityManager = $this->getEntityManager();
+    $query = $entityManager->createQuery(
+        'SELECT DISTINCT categorie
+        FROM App\Entity\Product p'
+    );
+    // returns an array of Product objects
+    return $query->execute();
+    }
+    
+    
     public function findByCategory($value): array
     {
          $qb = $this->createQueryBuilder('p')
